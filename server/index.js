@@ -5,14 +5,8 @@ const morgan = require("morgan");
 
 const authRoute = require("./routes/auth");
 const {MONGOURI} = require('./config/keys')
-
-mongoose.connect(
-  MONGOURI,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  () => {
-    console.log("Connected to MongoDB");
-  }
-);
+const connectDB = require('./config/db');;
+connectdb();
 app.use(express.json());
 app.use(morgan("common"));
 
